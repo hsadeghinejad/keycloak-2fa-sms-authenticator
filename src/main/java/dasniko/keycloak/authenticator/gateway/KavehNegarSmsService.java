@@ -3,14 +3,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class KavehNegarSmsService1 {
+public class KavehNegarSmsService {
 
     private static final String API_URL = "https://api.kavehnegar.com/v1/{API_KEY}/verify/lookup.json";
     private final String apiKey;
 
     private final OkHttpClient httpClient = new OkHttpClient();
 
-    public KavehNegarSmsService1() {
+    public KavehNegarSmsService() {
         Properties prop = new Properties();
         try (InputStream input = KavehNegarSmsService.class.getClassLoader().getResourceAsStream("config.properties")) {
             if (input == null) {

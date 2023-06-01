@@ -15,7 +15,7 @@ public class SmsServiceFactory {
         } else {
             String serviceType = config.getOrDefault("sms_service", "aws");
             if ("kavehnegar".equals(serviceType)) {
-                return new KavehNegarSmsService1(config);
+                return new KavehNegarSmsService(config);
             } else if ("aws".equals(serviceType)) {
                 return new AwsSmsService(config);
             } else {
