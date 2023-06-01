@@ -7,7 +7,7 @@ import java.util.Properties;
 
 import java.util.Map;
 
-public class KavehNegarSmsService {
+public class KavehNegarSmsService implements SmsService{
 
     private static final String API_URL = "https://api.kavehnegar.com/v1/{API_KEY}/verify/lookup.json";
     private final String apiKey;
