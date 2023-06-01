@@ -1,3 +1,5 @@
+package dasniko.keycloak.authenticator.gateway;
+
 import okhttp3.*;
 import java.io.IOException;
 import java.io.InputStream;
