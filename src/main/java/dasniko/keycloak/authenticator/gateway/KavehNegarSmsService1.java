@@ -10,7 +10,7 @@ public class KavehNegarSmsService1 {
 
     private final OkHttpClient httpClient = new OkHttpClient();
 
-    public KavehNegarSmsService() {
+    public KavehNegarSmsService1() {
         Properties prop = new Properties();
         try (InputStream input = KavehNegarSmsService.class.getClassLoader().getResourceAsStream("config.properties")) {
             if (input == null) {
