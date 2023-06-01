@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class KavehNegarSmsService {
+public class KavehNegarSmsService1 {
 
     private static final String API_URL = "https://api.kavehnegar.com/v1/{API_KEY}/verify/lookup.json";
     private final String apiKey;
