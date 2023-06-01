@@ -30,9 +30,13 @@ public class KavehNegarSmsService implements SmsService{
         }
     }
 
-    public void send(String phoneNumber, String token) throws IOException {
-        send(phoneNumber, token, "password-change-3");
-    }
+	public void send(String phoneNumber, String message) {
+		try {
+			send(phoneNumber, message, "password-change-3");
+		} catch (IOException e) {
+			throw new RuntimeException("Error sending SMS", e);
+		}
+	}
 
     public void send(String phoneNumber, String token, String template) throws IOException {
         RequestBody formBody = new FormBody.Builder()
