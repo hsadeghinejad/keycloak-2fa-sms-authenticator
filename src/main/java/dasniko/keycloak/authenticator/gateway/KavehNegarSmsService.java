@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import java.util.Map;
+
 public class KavehNegarSmsService {
 
     private static final String API_URL = "https://api.kavehnegar.com/v1/{API_KEY}/verify/lookup.json";
@@ -12,7 +14,7 @@ public class KavehNegarSmsService {
 
     private final OkHttpClient httpClient = new OkHttpClient();
 
-    public KavehNegarSmsService() {
+    public KavehNegarSmsService(Map<String, String> config) {
         Properties prop = new Properties();
         try (InputStream input = KavehNegarSmsService.class.getClassLoader().getResourceAsStream("config.properties")) {
             if (input == null) {
