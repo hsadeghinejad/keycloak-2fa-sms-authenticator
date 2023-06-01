@@ -4,3 +4,4 @@ config
 target
 deploy.sh
 dependency-reduced-pom.xml
+./src/main/resources/config.properties
