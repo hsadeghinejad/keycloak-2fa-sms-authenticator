@@ -13,14 +13,15 @@ public class SmsServiceFactory {
             return (phoneNumber, message) ->
                 LOG.warn(String.format("***** SIMULATION MODE ***** Would send SMS to %s with text: %s", phoneNumber, message));
         } else {
-            String serviceType = config.getOrDefault("sms_service", "aws");
-            if ("kavehnegar".equals(serviceType)) {
-                return new KavehNegarSmsService(config);
-            } else if ("aws".equals(serviceType)) {
-                return new AwsSmsService(config);
-            } else {
-                throw new IllegalArgumentException("Unsupported sms_service: " + serviceType);
-            }
+			String serviceType = Optional.ofNullable(System.getenv("SMS_SERVICE")).orElse("aws");
+
+			if ("kavehnegar".equals(serviceType)) {
+				return new KavehNegarSmsService();
+			} else if ("aws".equals(serviceType)) {
+				return new AwsSmsService();
+			} else {
+				throw new IllegalArgumentException("Unsupported sms_service: " + serviceType);
+			}
         }
     }
 }
