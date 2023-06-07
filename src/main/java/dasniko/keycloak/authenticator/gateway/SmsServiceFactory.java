@@ -13,7 +13,7 @@ public class SmsServiceFactory {
             return (phoneNumber, message) ->
                 LOG.warn(String.format("***** SIMULATION MODE ***** Would send SMS to %s with text: %s", phoneNumber, message));
         } else {
-			String serviceType = Optional.ofNullable(System.getenv("SMS_SERVICE")).orElse("aws");
+            String serviceType = config.get("SMS_SERVICE");
 
 			if ("kavehnegar".equals(serviceType)) {
 				return new KavehNegarSmsService();

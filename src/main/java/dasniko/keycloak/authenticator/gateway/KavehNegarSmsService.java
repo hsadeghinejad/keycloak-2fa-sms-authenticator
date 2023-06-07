@@ -15,7 +15,7 @@ public class KavehNegarSmsService implements SmsService{
     private final OkHttpClient httpClient = new OkHttpClient();
 
     public KavehNegarSmsService(Map<String, String> config) {
-        apiKey = System.getenv("API_KEY");
+        apiKey = config.get("API_KEY");
         if (apiKey == null) {
             throw new RuntimeException("API_KEY environment variable is not set");
         }
