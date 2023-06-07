@@ -16,9 +16,9 @@ public class SmsServiceFactory {
             String serviceType = config.get("SMS_SERVICE");
 
 			if ("kavehnegar".equals(serviceType)) {
-				return new KavehNegarSmsService();
+				return new KavehNegarSmsService(config);
 			} else if ("aws".equals(serviceType)) {
-				return new AwsSmsService();
+				return new AwsSmsService(config);
 			} else {
 				throw new IllegalArgumentException("Unsupported sms_service: " + serviceType);
 			}
