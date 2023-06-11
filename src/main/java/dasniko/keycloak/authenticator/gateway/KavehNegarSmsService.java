@@ -22,14 +22,6 @@ public class KavehNegarSmsService implements SmsService{
         }
     }
 
-	// public void send(String phoneNumber, String message) {
-	// 	try {
-	// 		send(phoneNumber, message, "password-change-3");
-	// 	} catch (IOException e) {
-	// 		throw new RuntimeException("Error sending SMS", e);
-	// 	}
-	// }
-
     public void send(String phoneNumber, String message) throws IOException {
         RequestBody formBody = new FormBody.Builder()
                 .add("receptor", phoneNumber)
