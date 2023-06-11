@@ -12,21 +12,9 @@ public class KavehNegarSmsService {
 
     private final OkHttpClient httpClient = new OkHttpClient();
 
-    public KavehNegarSmsService() {
-        Properties prop = new Properties();
-        try (InputStream input = KavehNegarSmsService.class.getClassLoader().getResourceAsStream("config.properties")) {
-            if (input == null) {
-                throw new IOException("Unable to find config.properties");
-            }
-            //load a properties file from class path
-            prop.load(input);
-
-            //get the property value
-            apiKey = prop.getProperty("api_key");
-        } catch (IOException ex) {
-            throw new RuntimeException("Error reading from config.properties", ex);
-        }
-    }
+    public KavehNegarSmsService(Map<String, String> config) {
+		apiKey = config.get("API_KEY");
+	}
 
     public void send(String phoneNumber, String token) throws IOException {
         send(phoneNumber, token, "password-change-3");
