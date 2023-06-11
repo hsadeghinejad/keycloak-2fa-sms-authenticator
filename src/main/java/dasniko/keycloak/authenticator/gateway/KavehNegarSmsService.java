@@ -4,10 +4,9 @@ import okhttp3.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-
 import java.util.Map;
 
-public class KavehNegarSmsService implements SmsService{
+public class KavehNegarSmsService {
 
     // private static final String API_URL = "https://api.kavehnegar.com/v1/{API_KEY}/verify/lookup.json";
     private static final String API_URL = "https://api.kavenegar.com/v1/{API-KEY}/sms/send.json";
@@ -16,19 +15,12 @@ public class KavehNegarSmsService implements SmsService{
     private final OkHttpClient httpClient = new OkHttpClient();
 
     public KavehNegarSmsService(Map<String, String> config) {
-        apiKey = config.get("API_KEY");
-        if (apiKey == null) {
-            throw new RuntimeException("API_KEY environment variable is not set");
-        }
-    }
-
-	public void send(String phoneNumber, String message) {
-		try {
-			send(phoneNumber, message, "password-change-3");
-		} catch (IOException e) {
-			throw new RuntimeException("Error sending SMS", e);
-		}
+		apiKey = config.get("API_KEY");
 	}
+
+    public void send(String phoneNumber, String token) throws IOException {
+        send(phoneNumber, token, "password-change-3");
+    }
 
     public void send(String phoneNumber, String token, String template) throws IOException {
         RequestBody formBody = new FormBody.Builder()
