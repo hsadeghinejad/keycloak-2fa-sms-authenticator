@@ -64,7 +64,7 @@ public class SmsAuthenticatorFactory implements AuthenticatorFactory {
 			new ProviderConfigProperty("senderId", "SenderId", "The sender ID is displayed as the message sender on the receiving device.", ProviderConfigProperty.STRING_TYPE, "Keycloak"),
 			new ProviderConfigProperty("API_KEY", "API_KEY", "Api key of your KavehNegar account.", ProviderConfigProperty.STRING_TYPE, ""),
 			new ProviderConfigProperty("SMS_SERVICE", "SMS service", "The SMS service you want to send with, choose between `kavehnegar` or `aws`.", ProviderConfigProperty.STRING_TYPE, "aws"),
-			new ProviderConfigProperty("sms_template", "SMS template", "The template id of kavehnegar lookup sms.", ProviderConfigProperty.STRING_TYPE, ""),
+			new ProviderConfigProperty("sms_template", "Provider template name", "The template id of kavehnegar lookup sms.", ProviderConfigProperty.STRING_TYPE, ""),
 			new ProviderConfigProperty("simulation", "Simulation mode", "In simulation mode, the SMS won't be sent, but printed to the server logs", ProviderConfigProperty.BOOLEAN_TYPE, true)
 		);
 	}

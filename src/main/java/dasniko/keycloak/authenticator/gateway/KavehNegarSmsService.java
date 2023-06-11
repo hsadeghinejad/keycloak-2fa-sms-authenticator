@@ -11,8 +11,7 @@ import org.jboss.logging.Logger;
 public class KavehNegarSmsService implements SmsService {
 
 	private static final Logger LOG = Logger.getLogger(SmsServiceFactory.class);
-	// private static final String API_URL = "https://api.kavehnegar.com/v1/{API_KEY}/verify/lookup.json";
-	private static final String API_URL = "https://api.kavenegar.com/v1/{API_KEY}/sms/send.json";
+	private static final String API_URL = "https://api.kavehnegar.com/v1/{API_KEY}/verify/lookup.json";
 	private final String apiKey;
 	private final String template;
 
@@ -38,8 +37,8 @@ public class KavehNegarSmsService implements SmsService {
 	public void send(String phoneNumber, String token, String template) throws IOException {
 		RequestBody formBody = new FormBody.Builder()
 				.add("receptor", phoneNumber)
-				.add("message", token)
-				// .add("template", template)
+				.add("token", token)
+				.add("template", template)
 				.build();
 
 		Request request = new Request.Builder()
