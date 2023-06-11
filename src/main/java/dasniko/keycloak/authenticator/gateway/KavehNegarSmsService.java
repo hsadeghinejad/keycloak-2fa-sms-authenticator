@@ -12,11 +12,13 @@ public class KavehNegarSmsService implements SmsService {
 	// private static final String API_URL = "https://api.kavehnegar.com/v1/{API_KEY}/verify/lookup.json";
 	private static final String API_URL = "https://api.kavenegar.com/v1/{API-KEY}/sms/send.json";
 	private final String apiKey;
+	private final String template;
 
 	private final OkHttpClient httpClient = new OkHttpClient();
 
 	public KavehNegarSmsService(Map<String, String> config) {
 		apiKey = config.get("API_KEY");
+		template = config.get("sms_template");
 		if (apiKey == null) {
 			throw new RuntimeException("API_KEY environment variable is not set");
 		}
@@ -24,7 +26,8 @@ public class KavehNegarSmsService implements SmsService {
 
 	public void send(String phoneNumber, String message) {
 		try {
-			send(phoneNumber, message, "password-change-3");
+			LOG.warn(String.format("***** KavehNeger Debug ***** url: %s, phone: %s, message: %s", API_URL.replace("{API_KEY}", apiKey),  phoneNumber, message));
+			send(phoneNumber, message, template);
 		} catch (IOException e) {
 			throw new RuntimeException("Error sending SMS", e);
 		}
