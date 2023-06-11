@@ -6,9 +6,11 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import java.util.Map;
+import org.jboss.logging.Logger;
 
 public class KavehNegarSmsService implements SmsService {
 
+	private static final Logger LOG = Logger.getLogger(SmsServiceFactory.class);
 	// private static final String API_URL = "https://api.kavehnegar.com/v1/{API_KEY}/verify/lookup.json";
 	private static final String API_URL = "https://api.kavenegar.com/v1/{API-KEY}/sms/send.json";
 	private final String apiKey;
