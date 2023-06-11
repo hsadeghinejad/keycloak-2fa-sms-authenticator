@@ -9,7 +9,8 @@ import java.util.Map;
 
 public class KavehNegarSmsService implements SmsService {
 
-	private static final String API_URL = "https://api.kavehnegar.com/v1/{API_KEY}/verify/lookup.json";
+	// private static final String API_URL = "https://api.kavehnegar.com/v1/{API_KEY}/verify/lookup.json";
+	private static final String API_URL = "https://api.kavenegar.com/v1/{API-KEY}/sms/send.json";
 	private final String apiKey;
 
 	private final OkHttpClient httpClient = new OkHttpClient();
@@ -32,8 +33,8 @@ public class KavehNegarSmsService implements SmsService {
 	public void send(String phoneNumber, String token, String template) throws IOException {
 		RequestBody formBody = new FormBody.Builder()
 				.add("receptor", phoneNumber)
-				.add("token", token)
-				.add("template", template)
+				.add("message", token)
+				// .add("template", template)
 				.build();
 
 		Request request = new Request.Builder()
