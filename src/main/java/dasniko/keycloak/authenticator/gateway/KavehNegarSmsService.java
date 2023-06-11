@@ -30,6 +30,7 @@ public class KavehNegarSmsService implements SmsService {
 			LOG.warn(String.format("***** KavehNeger Debug ***** url: %s, phone: %s, token: %s, template: %s", API_URL.replace("{API_KEY}", apiKey),  phoneNumber, message, template));
 			send(phoneNumber, message, template);
 		} catch (IOException e) {
+			LOG.warn(String.format("***** KavehNeger Debug ***** sending sms error: %s", e.getMessage()));
 			throw new RuntimeException("Error sending SMS", e);
 		}
 	}
