@@ -46,7 +46,7 @@ public class SmsAuthenticator implements Authenticator {
 			Locale locale = session.getContext().resolveLocale(user);
 			String smsAuthText, smsText;
 
-			if (config.getOrDefault("sms_template", "").equals("")){
+			if (config.getConfig().getOrDefault("sms_template", "").equals("")){
 				 smsAuthText = theme.getMessages(locale).getProperty("smsAuthText");
 				 smsText = String.format(smsAuthText, code, Math.floorDiv(ttl, 60));
 			}else{
