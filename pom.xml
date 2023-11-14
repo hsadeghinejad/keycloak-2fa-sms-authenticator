@@ -97,6 +97,7 @@
 									<include>software.amazon.awssdk:*</include>
 									<include>org.reactivestreams:reactive-streams</include>
 									<include>com.squareup.okhttp3:okhttp</include>
+									<include>org.jetbrains.kotlin:kotlin-stdlib</include>
 								</includes>
 							</artifactSet>
 						</configuration>
